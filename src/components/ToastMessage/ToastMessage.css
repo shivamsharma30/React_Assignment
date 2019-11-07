@@ -1,0 +1,15 @@
+.tost{
+    width: 500px;
+    position: absolute;
+    bottom: 100%; 
+    left: 50%;
+    transform: translate(-50%,0);
+    background-color: aquamarine; 
+    text-align: center;
+    padding: 10px;
+    animation: tostDown 2s; 
+}
+ @keyframes tostDown {
+    from{bottom: 100%;}
+    to{bottom: 92%;}
+} 
