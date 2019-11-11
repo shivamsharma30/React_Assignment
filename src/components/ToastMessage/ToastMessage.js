@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import "./ToastMessage.css"
 const toastMessage = (props)=> {
     console.log("in toast component", props.message);

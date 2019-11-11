@@ -1,12 +1,15 @@
 import React, {Component} from "react";
 import Product from '../Product/Product';
 import './Carousel.css'
-import { create } from "istanbul-reports";
 class Carousel extends Component {
-   constructor(props){
-       super(props);
-   }
-
+    constructor(props){
+        super(props);
+        this.state = {
+            products: [],
+        }
+        this.left = 0;
+    }
+     
    createProducts(){
        let products = [];
         products = this.props.products.map((ele, ind) => {
@@ -15,31 +18,38 @@ class Carousel extends Component {
         return products;
    }
 
-   leftShift = ()=>{
-        let left = this.list.style.left;
-        left = left - 100;
-        this.list.style.left = left +'px';
+   rightShift = ()=>{
+        if(this.left > -1656 )
+       this.left = this.left - 276;
+        this.list.style.left = this.left +'px';
    }
 
-   rightShift = ()=>{
-        let left = this.list.style.left;
-        if(left == 0)
-        left = left + 100
-        this.list.style.left = left +'px'
-        console.log(left)  
+   leftShift = ()=>{
+       if(this.left < 0)
+        this.left = this.left + 276;
+        this.list.style.left = this.left +'px'
     }
 
     render(){
-        let products = this.createProducts();   
+        let products = this.createProducts();    
         return (
-            <div className="carouselContainer">
-                <div onClick={this.leftShift}> prev </div>
-                <div className="list" ref = {(ref)=>{this.list = ref}}>
-                    {products}
+            <div className="carousel">
+                <div className="btn left" onClick={this.leftShift}> prev </div>
+                <div className="btn right" onClick={this.rightShift}> next </div>
+                <div className="carouselContainer">
+                    <div className="list" ref = {(ref)=>{this.list = ref}}>
+                        {products}
+                    </div>
                 </div>
-                <div onClick={this.rightShift}> next </div>
+               
             </div>
         );
     }
+ 
+    componentWillReceiveProps(props){
+        this.setState({...this.state, products: props.products});
+        this.list.style.width = `${props.products.length * 278}px` ;
+    }
 }
 export default Carousel;
+

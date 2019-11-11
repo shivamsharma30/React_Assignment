@@ -7,7 +7,7 @@ class HomePage extends Component{
     constructor(props){
         super(props);
         this.state = {
-            Products: []
+            products: []
         }
     }
 
@@ -24,7 +24,7 @@ class HomePage extends Component{
             }}).then(function (response) {
                 //handle success
                 console.log("handle success",response);
-                self.setState({...self.setState, Products:response.data.response.records});
+                self.setState({...self.state, products:response.data.response.records});
 
             }).catch(function (response) {
                 //handle error
@@ -35,7 +35,7 @@ class HomePage extends Component{
     render(){
         return(
             <>
-                <Carousel products= {this.state.Products}/>
+                <Carousel products= {this.state.products}/>
             </>
         );
     }

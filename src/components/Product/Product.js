@@ -8,9 +8,13 @@ const product = (props)=>{
             <div className="productImage">
                 <img src={props.product.compositeProducts[0].EProductMedia.smallURI} alt=""/>
             </div>
-            <span className="productName">{props.product.sfdcName}</span>
-            <span className="productPrice">{props.product.compositeProducts[0].priceEntry.listPrice}</span> 
-            <button></button>
+            <div className="productName">
+                <h3>{props.product.sfdcName}</h3>
+            </div>
+            <div className="productPrice">
+                <span>{props.product.compositeProducts[0].priceEntry.listPrice}</span> 
+            </div>
+            <button className="button">Add to Quote</button>
         </div>
     );
 }
