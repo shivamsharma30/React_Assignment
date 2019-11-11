@@ -1,0 +1,28 @@
+.card{
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    width: 224px;
+    height: 392px;
+    margin: 10px 12px;
+    box-shadow: 1px 2px 11px grey;
+    text-align: center; 
+}
+
+.productImage{
+    padding: 10px;
+}
+
+.productImage img{
+    height: 100%;
+    width: 100%;
+}
+/* 
+.productName{
+    display: block;
+
+}
+
+.productPrice{
+ display: block;
+} */

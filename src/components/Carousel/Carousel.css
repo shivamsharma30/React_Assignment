@@ -1,0 +1,11 @@
+.carouselContainer{
+
+position: relative;
+width: 62%;
+
+}
+.list{
+    position: absolute;
+   overflow: hidden;
+   height: 430px;
+}
