@@ -1,12 +1,13 @@
 import React from 'react';
-import "./ToastMessage.css"
+import "./ToastMessage.css";
+
 const toastMessage = (props)=> {
-    console.log("in toast component", props.message);
+    const {message} = props;
     return(
         <div className= "tost">
-            {props.message}
+            {message}
         </div>
-    )
-}
+    );
+};
 
 export default toastMessage;

@@ -1,49 +1,55 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/sort-comp */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, {Component} from "react";
 import Product from '../Product/Product';
-import './Carousel.css'
+import './Carousel.css';
+
 class Carousel extends Component {
     constructor(props){
         super(props);
         this.left = 0;
     }
      
-   createProducts(){
-       let products = [];
-        products = this.props.products.map((ele, ind) => {
-            return  <Product key={ind} product = {ele}/>
-        });
-        return products;
-   }
-
-   rightShift = ()=>{
+    rightShift = ()=>{
         if(this.left > -1656 )
        this.left = this.left - 276;
-        this.list.style.left = this.left +'px';
+        this.list.style.left = `${this.left}px`;
    }
 
    leftShift = ()=>{
-       if(this.left < 0)
-        this.left = this.left + 276;
-        this.list.style.left = this.left +'px'
+    if(this.left < 0)
+     this.left = this.left + 276;
+     this.list.style.left = `${this.left}px`;
+    }
+
+   createProducts(){
+        let tempProduct = [];
+        const {products} = this.props;
+        tempProduct = products.map((product) => {
+            return  <Product key={product.sfid} product = {product}/> ;
+        });
+        return tempProduct;
+   }
+
+ 
+   componentWillReceiveProps(props){
+       this.list.style.width = `${props.products.length * 278}px` ;
     }
 
     render(){
-        let products = this.createProducts();    
+        const products = this.createProducts();    
         return (
             <div className="carousel">
                 <div className="btn left" onClick={this.leftShift}> &#10094; </div>
                 <div className="btn right" onClick={this.rightShift}>&#10095;</div>
                 <div className="carouselContainer">
-                    <div className="list" ref = {(ref)=>{this.list = ref}}>
+                    <div className="list" ref = {(ref)=>{this.list = ref;}}>
                         {products}
                     </div>
                 </div>
             </div>
         );
-    }
- 
-    componentWillReceiveProps(props){
-        this.list.style.width = `${props.products.length * 278}px` ;
     }
 }
 export default Carousel;

@@ -1,6 +1,7 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import './Product.css';
-
 
 const product = (props)=>{
     return (
@@ -17,5 +18,5 @@ const product = (props)=>{
             <button className="button">Add to Quote</button>
         </div>
     );
-}
+};
 export default product;
