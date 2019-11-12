@@ -22,12 +22,9 @@ class HomePage extends Component{
                 "Bepsy-SiteId": "siteUS"
 
             }}).then(function (response) {
-                //handle success
-                console.log("handle success",response);
                 self.setState({...self.state, products:response.data.response.records});
 
             }).catch(function (response) {
-                //handle error
                 console.log(response);
         });
     }

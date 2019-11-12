@@ -4,9 +4,6 @@ import './Carousel.css'
 class Carousel extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            products: [],
-        }
         this.left = 0;
     }
      
@@ -34,20 +31,18 @@ class Carousel extends Component {
         let products = this.createProducts();    
         return (
             <div className="carousel">
-                <div className="btn left" onClick={this.leftShift}> prev </div>
-                <div className="btn right" onClick={this.rightShift}> next </div>
+                <div className="btn left" onClick={this.leftShift}> &#10094; </div>
+                <div className="btn right" onClick={this.rightShift}>&#10095;</div>
                 <div className="carouselContainer">
                     <div className="list" ref = {(ref)=>{this.list = ref}}>
                         {products}
                     </div>
                 </div>
-               
             </div>
         );
     }
  
     componentWillReceiveProps(props){
-        this.setState({...this.state, products: props.products});
         this.list.style.width = `${props.products.length * 278}px` ;
     }
 }

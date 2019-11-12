@@ -10,10 +10,10 @@ class App extends Component  {
   }
   render(){
     return (
-      <div> 
-      <LogInPage/>
-      <HomePage/>
-      </div>
+      <> 
+        <LogInPage/>
+        <HomePage/>
+      </>
     );
   }
 }

@@ -19,12 +19,14 @@
 .btn{
     width: 100px;
     padding: 10px;
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 40%;
+    font-size: 44px;
+    color: #a39f9f;
 }
 .left{
     left: 10%;
