@@ -1,0 +1,17 @@
+.navBar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    background-color: #505e76;
+    padding: 15px 20px;
+}
+.navigationLink{
+    padding: 10px 20px;
+    margin: 0px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.navigationLink:hover{
+    background-color: #a9b4c5;
+}
