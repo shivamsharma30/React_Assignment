@@ -15,10 +15,9 @@ class LogInPage extends Component{
     }
 
     toastMessageHandler = (message)=>{
-        const self = this;
         this.setState({...this.state, show:false});
         setTimeout(()=>{
-            this.setState({...self.state,LogInMessage: message, show: true});
+            this.setState({...this.state,LogInMessage: message, show: true});
         },500);
         
     }
