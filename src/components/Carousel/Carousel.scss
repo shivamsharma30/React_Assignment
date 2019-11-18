@@ -8,14 +8,15 @@
     left: 50%;
     transform: translate(-50%, 10px);
     overflow: hidden;
-    height: 470px;
+    height: 435px;
+    .list{
+        position: absolute;
+        overflow: hidden;
+        height: 100%;
+        left: 0;
+    }
 }
-.list{
-    position: absolute;
-    overflow: hidden;
-    height: 100%;
-    left: 0;
-}
+
 .btn{
     width: 100px;
     padding: 10px;

@@ -1,9 +1,12 @@
+$navBarBackground: #505e76;
+
 .navBar{
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-    background-color: #505e76;
+    background-color: $navBarBackground;
     padding: 15px 20px;
+    z-index: 1;
 }
 .navigationLink{
     padding: 10px 20px;

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Loader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Carousel from '../../components/Carousel/Carousel';
-import './HomePage.scss';
+import PLP from '../../components/PLP/PLP';
 
-class HomePage extends Component {
+class ProductListingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,19 +35,10 @@ class HomePage extends Component {
     const { products } = this.state;
     return (
       <>
-        {products.length === 0 ? (
-          <Loader
-            type="BallTriangle"
-            color="#505e76"
-            height={100}
-            width={100}
-            className="loader"
-          />
-        ) : (
-          <Carousel products={products} />
-        )}
+        <PLP products={products} />
       </>
     );
   }
 }
-export default HomePage;
+
+export default ProductListingPage;

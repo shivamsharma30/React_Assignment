@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Loader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Carousel from '../../components/Carousel/Carousel';
-import './HomePage.scss';
+import PLP from '../../components/PLP/PLP';
+import withSearch from '../../HOC/withSearch/withSearch';
 
-class HomePage extends Component {
+class SearchResultPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,21 +34,12 @@ class HomePage extends Component {
 
   render() {
     const { products } = this.state;
-    return (
-      <>
-        {products.length === 0 ? (
-          <Loader
-            type="BallTriangle"
-            color="#505e76"
-            height={100}
-            width={100}
-            className="loader"
-          />
-        ) : (
-          <Carousel products={products} />
-        )}
-      </>
-    );
+    let ProductsListWithSearch = [];
+    if (products.length > 0) {
+      ProductsListWithSearch = withSearch(PLP, products);
+    }
+    return <div> {ProductsListWithSearch}</div>;
   }
 }
-export default HomePage;
+
+export default SearchResultPage;
