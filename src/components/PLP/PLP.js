@@ -2,19 +2,9 @@ import React from 'react';
 import Product from '../Product/Product';
 import './PLP.scss';
 
-const addToQuote = product => {
-  console.log(product);
-};
-
 const createProducts = products => {
   return products.map(product => {
-    return (
-      <Product
-        addToQuote={() => addToQuote(product)}
-        key={product.sfid}
-        product={product}
-      />
-    );
+    return <Product key={product.sfid} product={product} />;
   });
 };
 

@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import './withSearch.scss';
 
-const withSearch = (WrappedComponent, products) => {
+const withSearch = (WrappedComponent, Products) => {
   class ProductsListWithSearch extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        Products: products,
-        SearchText: ''
+        products: Products,
+        searchText: ''
       };
     }
 
     handleSearch = event => {
-      this.setState({ SearchText: event.target.value });
+      this.setState({ searchText: event.target.value });
     };
 
     filterProducts = () => {
-      const { Products, SearchText } = this.state;
-      const searchText = SearchText.toLowerCase().trim();
-      const filtered = Products.filter(item => {
-        return item.sfdcName.toLowerCase().includes(searchText);
+      const { products, searchText } = this.state;
+      const inputText = searchText.toLowerCase().trim();
+      const filtered = products.filter(item => {
+        return item.sfdcName.toLowerCase().includes(inputText);
       });
       return filtered;
     };
@@ -30,10 +30,8 @@ const withSearch = (WrappedComponent, products) => {
           <input
             className="search"
             type="text"
-            placeholder="Search"
-            onChange={event => {
-              this.handleSearch(event);
-            }}
+            placeholder="Search ..."
+            onChange={this.handleSearch}
           />
           <WrappedComponent products={this.filterProducts()} />
         </>

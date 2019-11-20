@@ -2,7 +2,7 @@ import React from 'react';
 import './Product.scss';
 
 const card = props => {
-  const { product, addToQuote } = props;
+  const { product } = props;
   return (
     <div className="card">
       <div className="productImage">
@@ -14,14 +14,7 @@ const card = props => {
       <div className="productPrice">
         <span>{product.compositeProducts[0].priceEntry.listPrice}</span>
       </div>
-      <button
-        onClick={() => {
-          addToQuote(product);
-        }}
-        className="button"
-      >
-        Add to Quote
-      </button>
+      <button className="button">Add to Quote</button>
     </div>
   );
 };

@@ -1,5 +1,7 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Login from '../../components/Login/Login';
 import ToastMessage from '../../components/ToastMessage/ToastMessage';
 import './LogInPage.scss';
@@ -24,8 +26,9 @@ class LogInPage extends Component {
     if (username === '' || password === '') {
       this.toastMessageHandler('all field required');
     } else {
-      const regExUser = /^\S*$/.test(username);
-      const regExPass = /^\S*$/.test(password);
+      const regSp = /^\S*$/;
+      const regExUser = regSp.test(username);
+      const regExPass = regSp.test(password);
       if (regExUser && regExPass) {
         this.logInAPI(username, password);
       } else {
@@ -35,6 +38,28 @@ class LogInPage extends Component {
         this.toastMessageHandler(`${field} Invalid. space not allow`);
       }
     }
+  };
+
+  getUserProfile = (aToken, id) => {
+    const bearer = `Bearer ${aToken}`;
+    const contentType = 'application/json';
+    axios({
+      method: 'get',
+      url: `https://dev-bepsy-api.objectedge.com/oe_commerce_api/occ/v1/profiles/current?profileId=${id}`,
+      headers: {
+        Authorization: bearer,
+        'Content-Type': contentType
+      }
+    }).then(response => {
+      const { profile_user } = response.data;
+      const { setUserInStore } = this.props;
+      setUserInStore({
+        user: profile_user,
+        accessToken: aToken,
+        profileId: id
+      });
+      this.toastMessageHandler('Login Success');
+    });
   };
 
   logInAPI = (userName, passWord) => {
@@ -53,8 +78,12 @@ class LogInPage extends Component {
         'Content-Type': contentType
       }
     })
-      .then(() => {
-        this.toastMessageHandler('Login Success');
+      .then(response => {
+        if (response.status === 200) {
+          const { access_token, id } = response.data;
+          this.toastMessageHandler('Login Success');
+          this.getUserProfile(access_token, id);
+        }
       })
       .catch(() => {
         this.toastMessageHandler('Login Failed Please try again');
@@ -81,5 +110,11 @@ class LogInPage extends Component {
     );
   }
 }
-
-export default LogInPage;
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserInStore: data => {
+      dispatch({ type: 'ADD_ACCESS_TOKEN_AND_USER', payload: data });
+    }
+  };
+};
+export default connect(null, mapDispatchToProps)(LogInPage);

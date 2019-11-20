@@ -23,21 +23,11 @@ class Carousel extends Component {
     this.list.style.left = `${this.left}px`;
   };
 
-  addToQuote = product => {
-    console.log(product);
-  };
-
   createProducts() {
     let tempProduct = [];
     const { products } = this.props;
     tempProduct = products.map(product => {
-      return (
-        <Product
-          addToQuote={itam => this.addToQuote(itam)}
-          key={product.sfid}
-          product={product}
-        />
-      );
+      return <Product key={product.sfid} product={product} />;
     });
     return tempProduct;
   }
@@ -47,8 +37,7 @@ class Carousel extends Component {
     return (
       <div className="carousel">
         <div className="btn left" onClick={this.leftShift}>
-          {' '}
-          &#10094;{' '}
+          &#10094;
         </div>
         <div className="btn right" onClick={this.rightShift}>
           &#10095;

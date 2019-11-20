@@ -3,6 +3,7 @@
     position: absolute;
     bottom: 100%; 
     left: 50%;
+    z-index: 5;
     transform: translate(-50%,0);
     background-color: aquamarine; 
     text-align: center;
@@ -12,5 +13,5 @@
 }
  @keyframes tostDown {
     from{bottom: 100%;}
-    to{bottom: 92%;}
+    to{bottom: 91%;}
 } 

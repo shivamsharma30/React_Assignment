@@ -9,18 +9,22 @@ import './App.scss';
 
 const navigationLinks = [
   {
+    id: 'n1',
     navLink: '/home',
     navName: 'Home'
   },
   {
+    id: 'n2',
     navLink: '/login',
     navName: 'LogIn'
   },
   {
+    id: 'n3',
     navLink: '/productListingPage',
     navName: 'Products'
   },
   {
+    id: 'n4',
     navLink: '/SearchResultPage',
     navName: 'Search Product'
   }
