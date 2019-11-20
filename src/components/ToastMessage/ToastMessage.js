@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
-import "./ToastMessage.css"
-const toastMessage = (props)=> {
-    console.log("in toast component", props.message);
-    return(
-        <div className= "tost">
-            {props.message}
-        </div>
-    )
-}
+/* eslint-disable import/no-unresolved */
+import React from 'react';
+import './ToastMessage.scss';
+
+const toastMessage = props => {
+  const { message } = props;
+  return <div className="tost">{message}</div>;
+};
 
 export default toastMessage;

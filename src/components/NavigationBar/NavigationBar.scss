@@ -1,0 +1,44 @@
+$navBarBackground: #505e76;
+$navBarBackgroundOnHover: #a9b4c5;
+$color: #ffffff;
+.navBar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    background-color: $navBarBackground;
+    padding: 15px 20px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.navigationLink{
+    padding: 10px 20px;
+    margin: 0px 10px;
+    color: $color;
+    text-decoration: none;
+    font-size: 20px;
+}
+.navigationLink:hover{
+    background-color: $navBarBackgroundOnHover;
+}
+.name{
+    margin: 0 10px;
+    font-size: 20px;
+    color: $color;
+}
+.profileIcon{
+    margin: 0 10px;
+    color: $color;
+    font-size: 20px;
+}
+.logOutButton{
+    margin: 0 10px;
+    background-color: $navBarBackground;
+    border: none;
+    font-size: 20px;
+    color: $color;
+    cursor: pointer;
+}
+.logOutButton:hover{
+    background-color: $navBarBackgroundOnHover;
+}
